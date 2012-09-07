@@ -144,10 +144,6 @@ def test_gc_collect_at_end_of_batch():
                 counter.count |should| equal_to(call_count)
                 break
             else:
-                if counter.count != ((i - 1) / batchsize):
-                    from nose.tools import set_trace
-                    set_trace()
-
                 counter.count |should| equal_to((i - 1) / batchsize)
 
 
