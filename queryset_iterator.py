@@ -10,13 +10,15 @@ GC_COLLECT_END = 2
 
 
 def queryset_iterator(queryset, batchsize=500, gc_collect=GC_COLLECT_BATCH):
-    """
-    Obtain a generator that can be used to iterator
-    over the queryset in batches.
-    Keyword Arguments:
-    queryset -- The queryset to iterate over in batches.
-    batchsize -- The batch size used to process the queryset. Defaults to 500.
-    gc_collect -- Whether to garbage collect between batches. Defaults to True.
+    """Iterate over a Django queryset in efficient batches
+    :param queryset: The queryset to iterate over in batches.
+    :type queryset: QuerySet
+    :param batchsize: The batch size used to process the queryset. Defaults to 500.
+    :type batchsize: int
+    :param gc_collect: Whether to garbage collect between batches, at end or not at all.
+        Defaults to GC_COLLECT_BATCH.
+    :type gc_collect: int
+    :yield: Items within the queryset, one at a time, transparently from batches.
     """
     if batchsize < 1:
         raise ValueError('Batch size must be above 0')
