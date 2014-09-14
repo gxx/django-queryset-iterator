@@ -1,6 +1,10 @@
 Queryset Iterator ReadMe
 ========================
 
+Build Status:     [![Build Status](https://travis-ci.org/Andrew-Crosio/django-queryset-iterator.svg?branch=master)](https://travis-ci.org/Andrew-Crosio/django-queryset-iterator)
+
+Coverage:         [![Coverage Status](https://coveralls.io/repos/Andrew-Crosio/django-queryset-iterator/badge.png)](https://coveralls.io/r/Andrew-Crosio/django-queryset-iterator)
+
 General
 -------
 
