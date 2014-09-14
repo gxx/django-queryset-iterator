@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 """
 Contains the queryset_iterator function.
 This function is useful for iterating over large querysets with Django.
@@ -6,11 +8,13 @@ import gc
 
 
 GC_COLLECT_BATCH = 1
+
 GC_COLLECT_END = 2
 
 
 def queryset_iterator(queryset, batchsize=500, gc_collect=GC_COLLECT_BATCH):
     """Iterate over a Django queryset in efficient batches
+
     :param queryset: The queryset to iterate over in batches.
     :type queryset: QuerySet
     :param batchsize: The batch size used to process the queryset. Defaults to 500.
@@ -30,6 +34,7 @@ def queryset_iterator(queryset, batchsize=500, gc_collect=GC_COLLECT_BATCH):
     # This will be maintained in memory (or a temporary table) within the
     # database and iterated over, i.e. we will not copy and store results.
     iterator = queryset.values_list('pk', flat=True).distinct().iterator()
+
     # Begin main logic loop. Will loop until iterator is exhausted.
     while True:
         pk_buffer = []

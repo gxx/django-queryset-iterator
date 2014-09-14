@@ -1,0 +1,16 @@
+[run]
+branch=True
+source=.
+omit =
+    tests.py
+    queryset_iterator/__init__.py
+    setup.py
+
+[report]
+exclude_lines =
+    def __repr__
+    def __unicode__
+    def __str__
+
+precision = 2
+ignore_errors = True
